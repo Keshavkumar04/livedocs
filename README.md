@@ -1,36 +1,121 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div align="center">
 
-## Getting Started
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=30&duration=3500&pause=900&color=2563EB&center=true&vCenter=true&width=720&height=80&lines=LiveDocs;Real-time+collaborative+documents;Write+together%2C+live" alt="LiveDocs" />
 
-First, run the development server:
+### 📝 A real-time collaborative document editor
+
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Liveblocks](https://img.shields.io/badge/Liveblocks-FF7C2B?style=for-the-badge&logo=liveblocks&logoColor=white)
+![Clerk](https://img.shields.io/badge/Clerk-6C47FF?style=for-the-badge&logo=clerk&logoColor=white)
+![Sentry](https://img.shields.io/badge/Sentry-362D59?style=for-the-badge&logo=sentry&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+
+</div>
+
+---
+
+## 🧭 Overview
+
+**LiveDocs** is a real-time collaborative document editor — think Google Docs, rebuilt with a modern stack. Multiple people can edit the same document at once, see each other's live cursors, leave inline comments, and share documents with fine-grained permissions. It's built on **Liveblocks** for multiplayer state and the **Lexical** rich-text editor.
+
+## ✨ Features
+
+- ✍️ **Real-time co-editing** — multiple users edit the same doc simultaneously
+- 👥 **Live presence** — see active collaborators and their cursors in real time
+- 💬 **Inline comments** — start comment threads anywhere in a document
+- 🔗 **Sharing & permissions** — invite collaborators as viewer or editor
+- 🔔 **Notifications** — stay updated on mentions and changes
+- 📄 **Document management** — create, rename, and delete documents
+- 🌗 **Light & dark themes**
+- 🔐 **Authentication** — secure sign-in with Clerk
+- 🐞 **Error monitoring** — production observability via Sentry
+
+## 🛠️ Tech Stack
+
+| Layer | Technologies |
+| --- | --- |
+| Framework | Next.js (App Router), React, TypeScript |
+| Collaboration | Liveblocks |
+| Editor | Lexical |
+| Auth | Clerk |
+| Monitoring | Sentry |
+| UI | Tailwind CSS, Radix UI, shadcn/ui, Lucide |
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18+ and npm
+- Accounts for: Clerk, Liveblocks, Sentry
+
+### Installation
 
 ```bash
+# 1. Clone the repository
+git clone https://github.com/Keshavkumar04/livedocs.git
+cd livedocs
+
+# 2. Install dependencies
+npm install
+
+# 3. Set up environment variables (see below)
+cp .env.example .env
+
+# 4. Start the dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Create a `.env` file in the project root:
 
-## Learn More
+```env
+# Clerk
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=""
+CLERK_SECRET_KEY=""
+NEXT_PUBLIC_CLERK_SIGN_IN_URL="/sign-in"
+NEXT_PUBLIC_CLERK_SIGN_UP_URL="/sign-up"
 
-To learn more about Next.js, take a look at the following resources:
+# Liveblocks
+LIVEBLOCKS_SECRET_KEY=""
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Sentry
+SENTRY_AUTH_TOKEN=""
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+> ⚠️ **Never commit your real `.env` file.** Keep secrets out of version control and add `.env` to `.gitignore`.
 
-## Deploy on Vercel
+## 📜 Scripts
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the development server |
+| `npm run build` | Build for production |
+| `npm run start` | Run the production build |
+| `npm run lint` | Lint the codebase |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 📁 Project Structure
+
+```
+livedocs/
+├── app/
+│   ├── (auth)/        # Clerk sign-in / sign-up
+│   ├── (root)/        # Home + document pages
+│   └── api/           # Liveblocks auth endpoint
+├── components/        # Editor, collaborators, modals, UI
+│   └── editor/        # Lexical editor & plugins
+├── lib/               # Server actions (rooms, users), Liveblocks setup
+├── styles/            # Light & dark editor themes
+└── types/             # Shared TypeScript types
+```
+
+<div align="center">
+
+---
+
+Built with 💙 by [**Keshav Kumar**](https://github.com/Keshavkumar04)
+
+</div>
